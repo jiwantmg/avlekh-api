@@ -1,0 +1,14 @@
+{
+  "name": "avlekh-api",
+  "version": "1.0.0",
+  "description": "Api Services for Avelekh UI",
+  "author": "jiwan kumar tamang",
+  "license": "ISC",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
