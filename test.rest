@@ -1,0 +1,14 @@
+// customers section
+GET http://localhost:3000/api/customers HTTP/1.1
+
+###
+POST http://localhost:3000/api/customers HTTP/1.1
+content-type: application/json
+{     
+    "name": "Mohan",
+    "address": "Japan"
+}
+
+###
+### Staff Section
+GET http://localhost:3000/api/staffs/absentsummary HTTP/1.1

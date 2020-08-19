@@ -2,7 +2,8 @@ let customers = [
     { id: 1, name: "Jiwan", address: "Nepal" },
     { id: 2, name: "Jiwan", address: "Nepal" },
     { id: 3, name: "Jiwan", address: "Nepal" },
-    { id: 4, name: "Jiwan", address: "Nepal" }
+    { id: 4, name: "Jiwan", address: "Nepal" },
+    { id: 5, name: "Jiwan", address: "Nepal" },
 ]; 
 const getAllCustomers = function (req, res) {
     

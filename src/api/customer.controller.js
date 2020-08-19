@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const adminMiddleware = require('../middlewares/admin.auth.middleware');
 
 // import services
 const service = require('../services/customer.service');

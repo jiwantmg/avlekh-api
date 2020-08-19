@@ -5,10 +5,12 @@
   "author": "jiwan kumar tamang",
   "license": "ISC",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1"
   }
 }
