@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { customerController, staffController } = require('./api');
+const { customerController, staffController, authController } = require('./api');
 const { logginMiddleware, authMiddleware } = require('./middlewares');
 
 const createApp = () => {
@@ -11,10 +11,13 @@ const createApp = () => {
    app.use(cors());
    
    // apply middlewares
-   app.use(logginMiddleware);
-   app.use(authMiddleware);
+   app.use(logginMiddleware);   
    app.use(express.json());
-   app.use(customerController, staffController);
+   app.use(
+      customerController, 
+      staffController, 
+      authController
+   );
    
    app.listen(3000, function() {
     console.log(`Server is listening http://localhost:3000`);

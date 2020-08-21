@@ -12,3 +12,12 @@ content-type: application/json
 ###
 ### Staff Section
 GET http://localhost:3000/api/staffs/absentsummary HTTP/1.1
+
+### Authenticate
+POST http://localhost:3000/api/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "password": "123",    
+    "email": "jiwan@gmail.com"
+}
