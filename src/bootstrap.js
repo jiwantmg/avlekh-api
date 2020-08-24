@@ -1,8 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { customerController, staffController, authController } = require('./api');
-const { logginMiddleware, authMiddleware } = require('./middlewares');
+const { 
+   customerController, 
+   staffController, 
+   authController, 
+   tasksController 
+} = require('./api');
+
+const { 
+   logginMiddleware, 
+   authMiddleware 
+} = require('./middlewares');
 
 const createApp = () => {
    const app = express();
@@ -16,7 +25,8 @@ const createApp = () => {
    app.use(
       customerController, 
       staffController, 
-      authController
+      authController,
+      tasksController
    );
    
    app.listen(3000, function() {

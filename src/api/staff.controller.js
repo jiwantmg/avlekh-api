@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const staffService = require('../services/staffs.service');
 
 router.get('/api/staffs/absentsummary', function (req, res) {
     let summary = {
@@ -12,5 +13,7 @@ router.get('/api/staffs/absentsummary', function (req, res) {
     };
     res.send(summary);
 });
+
+router.get('/api/staffs', staffService.getAllStaffs);
 
 module.exports = router;

@@ -1,9 +1,10 @@
 let customers = [
-    { id: 1, name: "Jiwan", address: "Nepal" },
-    { id: 2, name: "Jiwan", address: "Nepal" },
-    { id: 3, name: "Jiwan", address: "Nepal" },
-    { id: 4, name: "Jiwan", address: "Nepal" },
-    { id: 5, name: "Jiwan", address: "Nepal" },
+    { id: 1, name: "Jiwan", email: 'jiwan@gmail.com', phoneNO: '1111111', address: "Nepal" },
+    { id: 2, name: "Mithun", email: 'mithun@gmail.com', phoneNO: '222222', address: "Nepal" },
+    { id: 3, name: "Mohan", email: 'mohan@gmail.com', phoneNO: '333333333', address: "Nepal" },
+    { id: 4, name: "Min", email: 'min@gmail.com', phoneNO: '444444', address: "Nepal" },
+    { id: 5, name: "Dil", email: 'di@gmail.com', phoneNO: '555555', address: "Nepal" },
+    { id: 6, name: "Arpana", email: 'arpana@gmail.com', phoneNO: '666666', address: "Nepal" },
 ]; 
 const getAllCustomers = function (req, res) {
     
