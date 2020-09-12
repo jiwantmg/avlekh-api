@@ -4,5 +4,6 @@ const router = express.Router();
 const service = require('../services/auth.service');
 
 router.post('/api/auth/login', service.login);
+router.post('/api/auth/register', service.register);
 
 module.exports = router;
