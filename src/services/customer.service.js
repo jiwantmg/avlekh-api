@@ -1,13 +1,9 @@
-let customers = [
-    { id: 1, name: "Jiwan", email: 'jiwan@gmail.com', phoneNO: '1111111', address: "Nepal" },
-    { id: 2, name: "Mithun", email: 'mithun@gmail.com', phoneNO: '222222', address: "Nepal" },
-    { id: 3, name: "Mohan", email: 'mohan@gmail.com', phoneNO: '333333333', address: "Nepal" },
-    { id: 4, name: "Min", email: 'min@gmail.com', phoneNO: '444444', address: "Nepal" },
-    { id: 5, name: "Dil", email: 'di@gmail.com', phoneNO: '555555', address: "Nepal" },
-    { id: 6, name: "Arpana", email: 'arpana@gmail.com', phoneNO: '666666', address: "Nepal" },
-]; 
-const getAllCustomers = function (req, res) {
-    
+const db = require('../models');
+
+const getAllCustomers = async function (req, res) {
+
+    let customers = await db.Customer.findAll();
+
     res.send({
         pageIndex: 1,
         pageSize: 20,
@@ -17,16 +13,24 @@ const getAllCustomers = function (req, res) {
     });
 };
 
-const addNewCustomer = function(req, res) {
-    let customerObject = {
-        id: customers.length + 1,
-        ...req.body
-    };      
-    console.log(customerObject);
-    customers.push(customerObject);   
-    res.send({
-        message: "Customer Added"
-    });
+const addNewCustomer = async function (req, res) {
+    try {
+        console.log("Customer Detail ",req.body);        
+        let customerObject = {            
+            ...req.body
+        };
+    
+        customerObject.username = req.body.user.username;
+        customerObject.password = req.body.user.password;
+
+        await db.Customer.create(customerObject);
+        res.send({
+            message: "Customer Added"
+        });
+    }catch(e) {
+        console.log(e);
+        throw new Error("Can not add customer");
+    }
 }
 
 module.exports.getAllCustomers = getAllCustomers;
