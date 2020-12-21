@@ -7,10 +7,10 @@ let users = [
 ]
 const login = async function(req, res) {
     let requestData = req.body;
-    console.log(requestData);
+    console.log("User Detail ",requestData);
     let user = await db.User.findOne({
         where: {
-            email: requestData.email,
+            username: requestData.username,
             password: requestData.password
         }
     }); 
@@ -20,7 +20,8 @@ const login = async function(req, res) {
     }
     
     res.send({
-        token: generateJwtToken()
+        token: generateJwtToken(user.id),
+        role: user.role
     })
 }
 
@@ -40,8 +41,8 @@ const register = function(req, res) {
 
 }
 
-function generateJwtToken(){
-    return jwtHelper.sign({}, 'thisisaverysecretkey');
+function generateJwtToken(id){
+    return jwtHelper.sign({id}, 'thisisaverysecretkey');
 }
 module.exports.login = login;
 module.exports.register = register;

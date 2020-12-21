@@ -3,6 +3,7 @@ const db = require('../models');
 const addNewStaff = async function (req, res) {
     try {
         let staff = req.body;
+        staff.role = "staff";
         await db.User.create(staff);
         res.send({ messag: "Staff created successfully"});
     } catch (e) {

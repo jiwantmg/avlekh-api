@@ -19,7 +19,7 @@ const addNewCustomer = async function (req, res) {
         let customerObject = {            
             ...req.body
         };
-    
+        customerObject.role = "customer";
         customerObject.username = req.body.user.username;
         customerObject.password = req.body.user.password;
 

@@ -3,7 +3,7 @@ const task = require('../models/task');
 
 let mytasks = [];
 const getAllMyTasks = function (req, res) {
-
+    console.log("user Id from service ", req.userId);
     res.send({
         pageIndex: 1,
         pageSize: 20,

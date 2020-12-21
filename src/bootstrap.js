@@ -9,12 +9,13 @@ const {
    staffController, 
    authController, 
    tasksController,
-   usersController
+   usersController   
 } = require('./api');
 
 const { 
    logginMiddleware, 
-   authMiddleware 
+   authMiddleware,
+   jwtAuthMiddleware
 } = require('./middlewares');
 
 const createApp = () => { 
@@ -44,6 +45,7 @@ const createApp = () => {
    
    // apply middlewares
    app.use(logginMiddleware);   
+   app.use(jwtAuthMiddleware);
    app.use(express.json());
    app.use(
       customerController, 
